@@ -1,0 +1,18 @@
+<div class="event_new">
+	<%= form_for (@event) do |f| %>
+	  <% if @event.errors.any? %>
+		<%= @event.errors.count %>のエラーが発生しました
+		<%= @event.errors.full_messages.each do |message| %>
+			<%= message %>
+		<% end%>
+	  <% end %>
+
+	  <p><%= f.attachment_field :event_image %></p>
+	  <p><%= f.text_field :title, :placeholder => "タイトル" %></p>
+	  <p><%= f.text_field :date, :placeholder => "日程" %></p>
+	  <p><%= f.text_field :place, :placeholder => "場所" %></p>
+	  <p><%= f.number_field :capacity, :placeholder => "定員" %></p>
+	  <p><%= f.text_area :description, :placeholder => "説明" %></p>
+	  <p><%= f.submit %></p>
+	<% end %>
+</div>
