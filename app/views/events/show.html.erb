@@ -1,0 +1,7 @@
+<p><%= attachment_image_tag @event, :event_image, :fill, 100, 100, format: 'jpeg' %></p>
+<p><%= @event.description %></p>
+<p><%= @event.title %></p>
+<p><%= @event.date %></p>
+<p><%= @event.place %></p>
+<p><%= @event.capacity %>人</p>
+<p><%= @event.created_at.strftime('%Y/%m/%d') %></p>

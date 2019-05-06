@@ -1,1 +1,8 @@
-index
+<% @events.each do |event| %>
+ <%= attachment_image_tag event, :event_image,:fill, 100, 100, format:'jpeg' %>
+ <p><%= event.title %></p>
+ <p><%= event.date %></p>
+ <p><%= event.place %></p>
+ <p><%= event.capacity %>人</p>
+ <p><%= link_to "詳細", event_path(event.id) %></p>
+<% end %>
