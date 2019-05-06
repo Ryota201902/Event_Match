@@ -1,7 +1,23 @@
-<p><%= attachment_image_tag @event, :event_image, :fill, 100, 100, format: 'jpeg' %></p>
-<p><%= @event.description %></p>
-<p><%= @event.title %></p>
-<p><%= @event.date %></p>
-<p><%= @event.place %></p>
-<p><%= @event.capacity %>人</p>
-<p><%= @event.created_at.strftime('%Y/%m/%d') %></p>
+<div class="event_show">
+	<p><%= attachment_image_tag @event, :event_image, :fill, 200, 100, format: 'jpeg' %></p>
+	<p>説明 : <%= @event.description %></p>
+	<p>タイトル<%= @event.title %></p>
+	<p>日程 : <%= @event.date %></p>
+	<p>場所 : <%= @event.place %></p>
+	<p>定員 : <%= @event.capacity %>人</p>
+	<p><%= @event.created_at.strftime('%Y/%m/%d') %></p>
+	<div class="comments">
+		<% @event.post_comments.each do |post_comment| %>
+		  <p><%= post_comment.user.name %>
+		  <%= post_comment.created_at.strftime('%Y/%m/%d')%>
+		  <%= post_comment.comment %></p>
+		<% end %>
+	</div>
+	<div class="comment_form">
+		<%= form_for [@event, @post_comment] do |f| %>
+		  <%= f.text_field :comment %>
+		  <%= f.submit %>
+		<% end %>
+	</div>
+</div>
+
