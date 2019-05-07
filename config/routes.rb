@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   root 'root#top'
   resources :events, only:[:new, :create, :index, :show] do
   	resource :post_comments, only: [:create, :destroy]
+  	resource :participates, only: [:create, :destroy]
   end
 end

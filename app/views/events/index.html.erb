@@ -1,8 +1,25 @@
-<% @events.each do |event| %>
- <%= attachment_image_tag event, :event_image,:fill, 100, 100, format:'jpeg' %>
- <p><%= event.title %></p>
- <p><%= event.date %></p>
- <p><%= event.place %></p>
- <p><%= event.capacity %>人</p>
- <p><%= link_to "詳細", event_path(event.id) %></p>
-<% end %>
+<div class="event_index">
+	<div class="events">
+		<% @events.each do |event| %>
+			 <%= attachment_image_tag event, :event_image,:fill, 100, 100, format:'jpeg' %>
+			 <p>タイトル : <%= event.title %></p>
+			 <p>日程 : <%= event.date %></p>
+			 <p>場所 : <%= event.place %></p>
+			 <p>定員 : <%= event.capacity %>人</p>
+			 <p><%= link_to "詳細", event_path(event.id) %></p>
+			 <div class="participate">
+				 <% if event.participated_by?(current_user) %>
+				   <%= link_to event_participates_path(event), method: :delete do %>
+				   <div class="participate_btn_true">参加予定</div>
+				   <% end %>
+				   <%= event.participates.count %>人参加
+				 <% else %>
+				   <%= link_to event_participates_path(event), method: :post do %>
+				   <div class="participate_btn_false">参加</div>
+				   <% end %>
+				   <%= event.participates.count %>人参加
+				 <% end %>
+			 </div>
+		<% end %>
+	</div>
+</div>
