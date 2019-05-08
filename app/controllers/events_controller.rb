@@ -19,8 +19,12 @@ class EventsController < ApplicationController
 	end
 
 	def show
-		@event = Event.find(params[:id])
-		@post_comment = PostComment.new
+		if Participate.where(event_id: params[:id]).pluck(:user_id).include?(current_user.id)
+			@event = Event.find(params[:id])
+			@post_comment = PostComment.new
+		else
+			redirect_back(fallback_location: events_path)
+		end
 	end
 
 	private

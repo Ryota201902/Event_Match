@@ -8,6 +8,9 @@
 			 <p>定員 : <%= event.capacity %>人</p>
 			 <p><%= link_to "詳細", event_path(event.id) %></p>
 			 <div class="participate">
+			   <% if event.capacity <= event.participates.count %>
+			   		<div class="capacity_max">満員</div>
+			   <% else %>
 				 <% if event.participated_by?(current_user) %>
 				   <%= link_to event_participates_path(event), method: :delete do %>
 				   <div class="participate_btn_true">参加予定</div>
@@ -19,6 +22,7 @@
 				   <% end %>
 				   <%= event.participates.count %>人参加
 				 <% end %>
+			  <% end %>
 			 </div>
 		<% end %>
 	</div>
