@@ -1,4 +1,10 @@
 <div class="event_index">
+	<div class="ransack">
+		<%= search_form_for @search do |f| %>
+			<%= f.search_field :title_cont %>
+			<%= f.submit %>
+		<% end %>
+	</div>
 	<div class="events">
 		<% @events.each do |event| %>
 			 <%= attachment_image_tag event, :event_image,:fill, 100, 100, format:'jpeg' %>
