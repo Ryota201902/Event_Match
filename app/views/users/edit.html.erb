@@ -1,0 +1,8 @@
+<div class="user_edit">
+	<%= form_for(@user) do |f| %>
+		<p><%= f.text_field :name %></p>
+		<p><%= f.text_area :introduction %></p>
+		<p><%= f.attachment_field :profile_image %></p>
+		<p><%= f.submit %></p>
+	<% end %>
+</div>

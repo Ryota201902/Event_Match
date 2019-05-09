@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   	resource :post_comments, only: [:create, :destroy]
   	resource :participates, only: [:create, :destroy]
   end
+  resources :users, only: [:show, :edit, :update]
 end

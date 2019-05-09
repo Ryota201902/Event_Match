@@ -7,5 +7,6 @@ class User < ApplicationRecord
   has_many :events, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :participates, dependent: :destroy
+  attachment :profile_image
 
 end
