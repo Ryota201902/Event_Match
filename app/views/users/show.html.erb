@@ -5,15 +5,19 @@
 	<% if @user.id == current_user.id %>
 		<%= link_to "プロフィール編集", edit_user_path(@user.id)%>
 	<% end %>
-	<div calss="participation_plans">
+	<div class="participation_plans">
 		<% @participates.each do |participate| %>
-		  <p><%= attachment_image_tag participate.event, :event_image, :fill, 100, 100, format: 'jpeg' %></p>
-		  <p>タイトル : <%= participate.event.title %></p>
-		  <p>日程 : <%= participate.event.date %></p>
-		  <p>場所 : <%= participate.event.place %></p>
-		  <p>定員 : <%= participate.event.capacity %>人</p>
-		  <p><%= link_to "詳細", event_path(participate.event) %></p>
-		  <%= link_to "参加取消", event_participates_path(participate.event), method: :delete %>
+			<div class="participate_plan">
+			  <p><%= attachment_image_tag participate.event, :event_image, :fill, 325, 210, format: 'jpeg' %></p>
+			  <p>タイトル : <%= participate.event.title %></p>
+			  <p>日程 : <%= participate.event.date %></p>
+			  <p>場所 : <%= participate.event.place %></p>
+			  <p>定員 : <%= participate.event.capacity %>人</p>
+			  <% if Participate.where(event_id:participate.event_id, user_id:current_user.id) != [] %>
+				  <p><%= link_to "トークルームへ", event_path(participate.event) %></p>
+				  <p><%= link_to "参加取消", event_participates_path(participate.event), method: :delete %></p>
+			  <% end %>
+			</div>
 		<% end %>
 	</div>
 </div>

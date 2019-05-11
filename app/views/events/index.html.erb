@@ -1,20 +1,19 @@
 <div class="event_index">
 	<div class="ransack">
 		<%= search_form_for @search do |f| %>
-			<%= f.search_field :title_cont %>
+			<%= f.search_field :title_cont, :placeholder => "キーワードを入力", class: "search_form" %>
 			<%= f.submit %>
 		<% end %>
 	</div>
-	<div class="events">
-		<% @events.each do |event| %>
-			 <%= attachment_image_tag event, :event_image,:fill, 100, 100, format:'jpeg' %>
+	<% @events.each do |event| %>
+		<div class="event_box">
+			 <%= attachment_image_tag event, :event_image,:fill, 325, 210, format:'jpeg' %>
 			 <p>タイトル : <%= event.title %></p>
 			 <p>日程 : <%= event.date %></p>
 			 <p>場所 : <%= event.place %></p>
 			 <p>定員 : <%= event.capacity %>人</p>
 
 			 <div class="participate">
-
 			   	 <% if event.user.id == current_user.id %>
 			   	   <div class ="participate_btn_host"><%= link_to "トークルームへ", event_path(event)%></div>
 			   	   <p><%= event.participates.count %>人参加</p>
@@ -31,8 +30,7 @@
 				   <% end %>
 				   <%= event.participates.count %>人参加
 				 <% end %>
-
 			 </div>
-		<% end %>
-	</div>
+		</div>
+	<% end %>
 </div>

@@ -3,10 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .user_show {
-	margin-top: 90px;
+	margin: 100px;
 }
 
 .user_edit {
 	margin-top: 90px;
 	margin-left: 20px;
+}
+
+.participate_plan {
+	width: 325px;
+	height: 420px;
+	float: left;
+	background-color: white;
+	margin: 0px 30px 30px 0;
+	box-shadow: 2px 2px 4px #eef0f4;
 }
