@@ -1,0 +1,9 @@
+<%= form_for @event do |f| %>
+	<p><%= f.attachment_field :event_image %></p>
+	<p><%= f.text_field :title, :placeholder => "タイトル" %></p>
+	<p><%= f.text_field :date, :placehholder => "日程" %></p>
+	<p><%= f.text_field :place, :placeholder => "場所" %></p>
+	<p><%= f.number_field :capacity, :placeholder => "定員" %></p>
+	<p><%= f.text_area :description , :placeholder => "説明" %></p>
+	<p><%= f.submit %></p>
+<% end %>
