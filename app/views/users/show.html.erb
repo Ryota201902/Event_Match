@@ -1,5 +1,5 @@
 <div class="user_show">
-	<p><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: "jpeg", fallback: "no_image.jpeg"%></p>
+	<p><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: "jpeg", fallback: "no_image.jpeg" %></p>
 	<p>名前 : <%= @user.name %></p>
 	<p>自己紹介 : <%= @user.introduction %></p>
 	<% if @user.id == current_user.id %>
@@ -12,10 +12,14 @@
 			  <p>タイトル : <%= participate.event.title %></p>
 			  <p>日程 : <%= participate.event.date %></p>
 			  <p>場所 : <%= participate.event.place %></p>
-			  <p>定員 : <%= participate.event.capacity %>人</p>
-			  <% if Participate.where(event_id:participate.event_id, user_id:current_user.id) != [] %>
+			  <p>参加人数 : <%= Participate.where(event_id: participate.event.id ).count %>/<%= participate.event.capacity %>名</p>
+			  <% if Participate.where(event_id: participate.event_id, user_id: current_user.id) != [] %>
 				  <p><%= link_to "トークルームへ", event_path(participate.event) %></p>
 				  <p><%= link_to "参加取消", event_participates_path(participate.event), method: :delete %></p>
+			  <% elsif Participate.where(event_id: participate.event_id).count >= participate.event.capacity %>
+			  	  <p>満員</p>
+			  <% else %>
+			  	  <p><%= link_to "参加", event_participates_path(participate.event), method: :post %></p>
 			  <% end %>
 			</div>
 		<% end %>

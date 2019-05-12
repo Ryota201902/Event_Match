@@ -11,26 +11,26 @@
 			 <p>タイトル : <%= event.title %></p>
 			 <p>日程 : <%= event.date %></p>
 			 <p>場所 : <%= event.place %></p>
-			 <p>定員 : <%= event.capacity %>人</p>
+			 <p>参加人数 : <%= event.participates.count %>/<%= event.capacity %>名</p>
 
 			 <div class="participate">
 			   	 <% if event.user.id == current_user.id %>
-			   	   <div class ="participate_btn_host"><%= link_to "トークルームへ", event_path(event)%></div>
-			   	   <p><%= event.participates.count %>人参加</p>
+			   	   <div class ="participate_btn_host"><%= link_to "トークルームへ", event_path(event)%></div></p>
 				 <% elsif event.participated_by?(current_user) %>
 				   <%= link_to event_participates_path(event), method: :delete do %>
 				     <div class="participate_btn_true"><%= link_to "トークルームへ", event_path(event.id) %></div>
 				   <% end %>
-				   <%= event.participates.count %>人参加
 				 <% elsif event.capacity <= event.participates.count %>
 				   <div class="capacity_max">満員</div>
 				 <% else %>
 				   <%= link_to event_participates_path(event), method: :post do %>
 				     <div class="participate_btn_false">参加</div>
 				   <% end %>
-				   <%= event.participates.count %>人参加
 				 <% end %>
 			 </div>
+			 <% if event.user == current_user %>
+			 	<%= link_to "投稿削除", event_path(event),method: :delete %>
+			 <% end %>
 		</div>
 	<% end %>
 </div>

@@ -6,9 +6,6 @@
 	<p>場所 : <%= @event.place %></p>
 	<p>定員 : <%= @event.capacity %>人</p>
 	<p><%= @event.created_at.strftime('%Y/%m/%d') %></p>
-	<% if @event.user == current_user %>
-		<%= link_to "投稿削除", event_path(@event.id), method: :delete %>
-	<% end %>
 	<% if @event.participated_by?(current_user) %>
 		<%= link_to "参加取消", event_participates_path(@event), method: :delete %>
 	<% end %>
