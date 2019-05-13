@@ -17,13 +17,14 @@
 			   	 <% if event.user.id == current_user.id %>
 			   	   <div class ="participate_btn_host"><%= link_to "トークルームへ", event_path(event)%></div></p>
 				 <% elsif event.participated_by?(current_user) %>
-				   <%= link_to event_participates_path(event), method: :delete do %>
-				     <div class="participate_btn_true"><%= link_to "トークルームへ", event_path(event.id) %></div>
-				   <% end %>
+				   <div class="participate_btn_true">
+				   	<p><%= link_to "トークルームへ", event_path(event.id) %></p>
+				   	<p><%= link_to "参加取消", event_participates_path(event), method: :delete %></p>
+				   </div>
 				 <% elsif event.capacity <= event.participates.count %>
 				   <div class="capacity_max">満員</div>
 				 <% else %>
-				    <div class="participate_btn_false"><%= link_to "参加", event_participates_path(event), method: :post %></div>
+				   <div class="participate_btn_false"><%= link_to "参加", event_participates_path(event), method: :post %></div>
 				 <% end %>
 			 </div>
 			 <% if event.user == current_user %>
