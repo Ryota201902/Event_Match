@@ -23,14 +23,12 @@
 				 <% elsif event.capacity <= event.participates.count %>
 				   <div class="capacity_max">満員</div>
 				 <% else %>
-				   <%= link_to event_participates_path(event), method: :post do %>
-				     <div class="participate_btn_false">参加</div>
-				   <% end %>
+				    <div class="participate_btn_false"><%= link_to "参加", event_participates_path(event), method: :post %></div>
 				 <% end %>
 			 </div>
 			 <% if event.user == current_user %>
-			 	<%= link_to "投稿削除", event_path(event),method: :delete %>
-			 	<%= link_to "投稿編集", edit_event_path(event) %>
+			 	<%= link_to "削除", event_path(event),method: :delete %>
+			 	<%= link_to "編集", edit_event_path(event) %>
 			 <% end %>
 		</div>
 	<% end %>

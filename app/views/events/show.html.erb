@@ -4,7 +4,7 @@
 	<p>タイトル : <%= @event.title %></p>
 	<p>日程 : <%= @event.date %></p>
 	<p>場所 : <%= @event.place %></p>
-	<p>定員 : <%= @event.capacity %>人</p>
+	<p>参加人数 : <%= @event.participates.count %>/<%= @event.capacity %>名</p>
 	<p><%= @event.created_at.strftime('%Y/%m/%d') %></p>
 	<% if @event.participated_by?(current_user) %>
 		<%= link_to "参加取消", event_participates_path(@event), method: :delete %>
