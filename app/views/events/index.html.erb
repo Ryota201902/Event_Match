@@ -5,32 +5,23 @@
 			<%= f.submit %>
 		<% end %>
 	</div>
-	<% @events.each do |event| %>
-		<div class="event_box">
-			 <%= attachment_image_tag event, :event_image,:fill, 325, 210, format:'jpeg' %>
-			 <p>タイトル : <%= event.title %></p>
-			 <p>日程 : <%= event.date %></p>
-			 <p>場所 : <%= event.place %></p>
-			 <p>参加人数 : <%= event.participates.count %>/<%= event.capacity %>名</p>
 
-			 <div class="participate">
-			   	 <% if event.user.id == current_user.id %>
-			   	   <div class ="participate_btn_host"><%= link_to "トークルームへ", event_path(event)%></div></p>
-				 <% elsif event.participated_by?(current_user) %>
-				   <div class="participate_btn_true">
-				   	<p><%= link_to "トークルームへ", event_path(event.id) %></p>
-				   	<p><%= link_to "参加取消", event_participates_path(event), method: :delete %></p>
-				   </div>
-				 <% elsif event.capacity <= event.participates.count %>
-				   <div class="capacity_max">満員</div>
-				 <% else %>
-				   <div class="participate_btn_false"><%= link_to "参加", event_participates_path(event), method: :post %></div>
-				 <% end %>
-			 </div>
-			 <% if event.user == current_user %>
-			 	<%= link_to "削除", event_path(event),method: :delete %>
-			 	<%= link_to "編集", edit_event_path(event) %>
-			 <% end %>
-		</div>
-	<% end %>
+<% @events.each do |event| %>
+	<div class="event_box">
+		 <%= attachment_image_tag event, :event_image,:fill, 325, 210, format:'jpeg' %>
+		 <p>タイトル : <%= event.title %></p>
+		 <p>日程 : <%= event.date %></p>
+		 <p>場所 : <%= event.place %></p>
+		 <p>参加人数 : <%= event.participates.count %>/<%= event.capacity %>名</p>
+
+			<%= render partial: 'events/participate', locals: { event: event } %>
+
+		 <% if event.user == current_user %>
+		 	<%= link_to "削除", event_path(event),method: :delete %>
+		 	<%= link_to "編集", edit_event_path(event) %>
+		 <% end %>
+	</div>
+
+
+<% end %>
 </div>
