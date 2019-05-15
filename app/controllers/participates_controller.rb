@@ -7,14 +7,9 @@ class ParticipatesController < ApplicationController
 	end
 
 	def destroy
-		event = Event.find(params[:event_id])
-		participate = current_user.participates.find_by(event_id: event.id)
+		@event = Event.find(params[:event_id])
+		participate = current_user.participates.find_by(event_id: @event.id)
+		@events = Event.all
 		participate.destroy
-		@path = Rails.application.routes.recognize_path(request.referer)
-		if @path[:controller] == "events"
-			redirect_to events_path
-		else
-			redirect_back(fallback_location: user_path(current_user))
-		end
 	end
 end

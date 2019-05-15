@@ -1,16 +1,23 @@
+
  <div class="participate">
    	 <% if event.user.id == current_user.id %>
-   	   <div class ="participate_btn_host"><%= link_to "トークルームへ", event_path(event)%></div></p>
-	 <% elsif event.participated_by?(current_user) %>
-	   <div class="participate_btn_true">
-	   	<p><%= link_to "トークルームへ", event_path(event.id) %></p>
-	   	<p><%= link_to "参加取消", event_participates_path(event), method: :delete, id: "unparticipate_btn", remote: true %></p>
-	   </div>
-	 <% elsif event.capacity <= event.participates.count %>
-	   <div class="capacity_max">満員</div>
+   	   <div class ="participate_btn_host">
+   	   	<%= link_to "トークルームへ", event_path(event)%>
+   	   </div>
 	 <% else %>
-	   <div class="participate_btn_false">
-	   	<%= link_to "参加", event_participates_path(event), method: :post, remote: true, id: "participate_btn_#{event.id}" %>
-	   </div>
+		<% if event.participated_by?(current_user) %>
+		<div class="participate_btn_true">
+			<p><%= link_to "トークルームへ", event_path(event.id) %></p>
+			<p>
+				<%= link_to "参加取消", event_participates_path(event), method: :delete, id: "participate_btn_#{event.id}", remote: true %>
+			</p>
+		</div>
+		<% elsif event.capacity <= event.participates.count %>
+			<div class="capacity_max">満員</div>
+		<% else %>
+			   <div class="participate_btn_false">
+			   	<%= link_to "参加", event_participates_path(event), method: :post, remote: true, id: "participate_btn_#{event.id}" %>
+			   </div>
+		 <% end %>
 	 <% end %>
  </div>
