@@ -15,9 +15,12 @@ class EventsController < ApplicationController
 	end
 
 	def index
-		@events = Event.all
-		@search = Event.ransack(params[:q])
-		@events = @search.result
+		if Event.ransack(params[:q])
+			@search = Event.ransack(params[:q])
+			@events = @search.result.page(params[:page]).reverse_order
+		else
+			@events = Event.page(params[:page]).reverse_order
+		end
 	end
 
 	def show
