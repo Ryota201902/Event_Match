@@ -8,12 +8,14 @@
 
 	<div class="event_boxes clearfix">
 		<% @events.each do |event| %>
-			<div class="event_box">
-				 <%= attachment_image_tag event, :event_image,:fill, 325, 210, format:'jpeg' %>
+			<div class="event_box" id="event_box_hover">
+				 <div id="event_image"><%= attachment_image_tag event, :event_image,:fill, 325, 210, format:'jpeg' %></div>
 				 <p>タイトル : <%= event.title %></p>
 				 <p>日程 : <%= event.date %></p>
 				 <p>場所 : <%= event.place %></p>
-		 		 <p>参加人数 : <%= event.participates.count %>/<%= event.capacity %>名</p>
+				 <p>参加人数 : <%= event.participates.count %>/<%= event.capacity %>名</p>
+
+
 				 <%= render partial: 'events/participate', locals: { event: event } %>
 				 <% if event.user == current_user %>
 				 	<%= link_to "削除", event_path(event), method: :delete %>

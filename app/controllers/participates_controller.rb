@@ -11,5 +11,6 @@ class ParticipatesController < ApplicationController
 		participate = current_user.participates.find_by(event_id: @event.id)
 		@events = Event.all
 		participate.destroy
+		redirect_to events_path
 	end
 end
