@@ -12,11 +12,8 @@
 		 <p>タイトル : <%= event.title %></p>
 		 <p>日程 : <%= event.date %></p>
 		 <p>場所 : <%= event.place %></p>
-
- <p>参加人数 : <%= event.participates.count %>/<%= event.capacity %>名</p>
-				<%= render partial: 'events/participate', locals: { event: event } %>
-
-
+ 		 <p>参加人数 : <%= event.participates.count %>/<%= event.capacity %>名</p>
+		 <%= render partial: 'events/participate', locals: { event: event } %>
 		 <% if event.user == current_user %>
 		 	<%= link_to "削除", event_path(event), method: :delete %>
 		 	<%= link_to "編集", edit_event_path(event) %>
