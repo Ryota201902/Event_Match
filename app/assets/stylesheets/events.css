@@ -32,7 +32,8 @@
 	float: left;
 	background-color: white;
 	margin: 0px 30px 30px 0;
-	box-shadow: 2px 2px 4px #eef0f4;
+	box-shadow: 2px 2px 4px #DDDDDD;
+	border-left: 1px solid #DDDDDD;
 }
 
 .ransack {

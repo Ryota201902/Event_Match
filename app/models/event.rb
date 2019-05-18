@@ -8,6 +8,7 @@ class Event < ApplicationRecord
 	validates :date, presence: true
 	validates :place, presence: true
 	validates :capacity, presence: true
+	validates :description, presence: true
 
 	def participated_by?(user)
 		participates.where(user_id: user.id).exists?
