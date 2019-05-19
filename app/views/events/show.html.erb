@@ -9,6 +9,10 @@
 	<% if @event.participated_by?(current_user) %>
 		<%= link_to "参加取消", event_participates_path(@event), method: :delete %>
 	<% end %>
+	<% if @event.user == current_user %>
+		<%= link_to "削除", event_path(@event), method: :delete %>
+		<%= link_to "編集", edit_event_path(@event) %>
+	<% end %>
 
 	<div class="comments">
 		<% @event.post_comments.each do |post_comment| %>

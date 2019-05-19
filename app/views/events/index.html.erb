@@ -16,11 +16,6 @@
 
 				 <div id="participate_btn_<%= event.id %>"><%= render partial: 'events/participate', locals: { event: event } %>
 				 </div>
-
-				 <% if event.user == current_user %>
-				 	<%= link_to "削除", event_path(event), method: :delete %>
-				 	<%= link_to "編集", edit_event_path(event) %>
-				 <% end %>
 			</div>
 		<% end %>
 	</div>

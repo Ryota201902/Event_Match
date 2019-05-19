@@ -1,0 +1,8 @@
+<p>参加人数 : <%= Participate.where(event_id: participate.event.id ).count %>/<%= participate.event.capacity %>名</p>
+<% if Participate.where(event_id: participate.event_id, user_id: current_user.id) != [] %>
+  <p><%= link_to "トークルームへ", event_path(participate.event) %></p>
+<% elsif Participate.where(event_id: participate.event_id).count >= participate.event.capacity %>
+	  <p>満員</p>
+<% else %>
+	  <p><%= link_to "参加", event_participates_path(participate.event), method: :post %></p>
+<% end %>
