@@ -1,1 +1,2 @@
 $("#participate_btn_<%= @event.id %>").html("<%= j(render partial: 'events/participate', locals: {events: @events, event: @event}) %>");
+$("#mypage_participate_btn_<%= @event.id %>").html("<%= j(render partial: 'users/mypage_participate', locals: {participates: @participates, participate: @participate}) %>");

@@ -4,5 +4,5 @@
 <% elsif Participate.where(event_id: participate.event_id).count >= participate.event.capacity %>
 	  <p>満員</p>
 <% else %>
-	  <p><%= link_to "参加", event_participates_path(participate.event), method: :post %></p>
+	  <p><%= link_to "参加", event_participates_path(participate.event), method: :post, remote: true %></p>
 <% end %>
