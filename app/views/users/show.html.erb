@@ -7,8 +7,13 @@
 	<% end %>
 	<div class="participation_plans">
 		<% @participates.each do |participate| %>
-			<div class="participate_plan">
+			<div class="participate_plan participate_plan_hover">
 			  <p><%= attachment_image_tag participate.event, :event_image, :fill, 325, 210, format: 'jpeg' %></p>
+			  <div class="mypage_description">
+			  	<div class="mypage_description-text">
+			  		<%= participate.event.description %>
+			  	</div>
+			  </div>
 			  <p>タイトル : <%= participate.event.title %></p>
 			  <p>日程 : <%= participate.event.date %></p>
 			  <p>場所 : <%= participate.event.place %></p>

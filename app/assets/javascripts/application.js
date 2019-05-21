@@ -15,3 +15,25 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(function() {
+  $('.event_box_hover').hover(
+    function(){
+      $(this).find('.description').fadeIn(150);
+    },
+    function(){
+      $(this).find('.description').fadeOut();
+    }
+    );
+});
+
+$(function() {
+  $('.participate_plan_hover').hover(
+    function(){
+      $(this).find('.mypage_description').fadeIn(150);
+    },
+    function(){
+      $(this).find('.mypage_description').fadeOut();
+    }
+    );
+});
