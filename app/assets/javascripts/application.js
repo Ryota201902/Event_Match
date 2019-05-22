@@ -20,9 +20,12 @@ $(function() {
   $('.event_box_hover').hover(
     function(){
       $(this).find('.description').fadeIn(150);
+      $(this).find('.description-text').slideDown();
+      $(this).find('.event_image').css('transform','scale(1.05)').css('transition-duration','0.3s');
     },
     function(){
       $(this).find('.description').fadeOut();
+      $(this).find('.event_image').css('transform','scale(1.0)');
     }
     );
 });

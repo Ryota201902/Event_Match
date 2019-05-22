@@ -9,10 +9,12 @@
 	<div class="event_boxes clearfix">
 		<% @events.each do |event| %>
 			<div class="event_box event_box_hover">
-				 <div class="event_image" id="event_image_hover"><%= attachment_image_tag event, :event_image,:fill, 325, 210, format:'jpeg' %>
+				<div class="event_image_wrap">
+				 <div class="event_image"><%= attachment_image_tag event, :event_image,:fill, 325, 210, format:'jpeg' %>
 				 </div>
+				</div>
 				 <div class="description">
-				 	<div class="description-text">
+				 	<div  class = "description-text" >
 				 		<%= event.description %>
 				 	</div>
 				 </div>

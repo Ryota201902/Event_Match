@@ -37,12 +37,22 @@
 	position: relative;
 }
 
+.event_image_wrap {
+	overflow: hidden;
+	width: 325px;
+	height: 210px;
+}
+
+.event_image {
+
+}
+
 
 .description {
 	width: 325px;
 	height: 210px;
 	background-color: black;
-	opacity: 0.5;
+	opacity: 0.6;
 	position: absolute;
 	display: none;
 	top: 0;
