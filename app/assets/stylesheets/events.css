@@ -43,10 +43,6 @@
 	height: 210px;
 }
 
-.event_image {
-
-}
-
 
 .description {
 	width: 325px;
@@ -63,7 +59,13 @@
 	color: white;
 	text-align: center;
 	margin: 0 auto;
+	display: none;
 	padding-top: 60px;
+}
+
+.event_title {
+	border-bottom: 1px solid #DDDDDD;
+	padding:  8px;
 }
 
 .ransack {
