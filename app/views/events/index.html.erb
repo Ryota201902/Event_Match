@@ -18,9 +18,24 @@
 				 		<%= event.description %>
 				 	</div>
 				 </div>
-				 <p class="event_title"><%= fa_icon("home") %> : <%= event.title %></p>
-				 <p>日程 : <%= event.date %></p>
-				 <p>場所 : <%= event.place %></p>
+				 <p class="event_title">
+				 	<span class="hashtag">
+				 		<%= fa_icon("hashtag") %>
+				 	</span>
+				 	<%= event.title %>
+				 </p>
+				 <p class="event_date">
+				 	<span class="calendar">
+				 		<%= fa_icon("calendar") %>
+				 	</span>
+				 	: <%= event.date %>
+				 </p>
+				 <p class="event_place">
+				 	<span class="map-marker">
+				 		<%= fa_icon("map-marker") %>
+				 	</span>
+				 	: <%= event.place %>
+				 </p>
 
 				 <div id="participate_btn_<%= event.id %>"><%= render partial: 'events/participate', locals: { event: event } %>
 				 </div>

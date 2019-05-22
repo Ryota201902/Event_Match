@@ -1,17 +1,22 @@
-<p class="participates_count">参加人数 : <%= event.participates.count %>/<%= event.capacity %>名</p>
+<p class="participates_count">
+	<span class="participate_users"><%= fa_icon("user") %></span>
+	: <%= event.participates.count %>/<%= event.capacity %>名
+</p>
 
-<div id ="participate">
+<div id ="participate" class="participate_button">
 	<% if event.user.id == current_user.id %>
-   	   <div class ="participate_btn_host">
-   	   	<%= link_to "トークルームへ", event_path(event)%>
-   	   </div>
+   	   <p>
+   	   	<%= link_to "トークルームへ", event_path(event), class: "btn talkroom_host"%>
+   	   </p>
 	<% elsif event.participated_by?(current_user) %>
 		<p>
-		  <%= link_to "トークルームへ", event_path(event.id), method: :get %>
+		  <%= link_to "トークルームへ", event_path(event.id), method: :get, class: "btn talkroom_participate" %>
 		</p>
 	<% elsif event.capacity <= event.participates.count %>
-		<div class="capacity_max">満員</div>
+		<p class="capacity_max btn">満員</p>
 	<% else %>
-		<%= link_to "参加", event_participates_path(event), method: :post, remote: true, id:"participate_link_#{event.id}" %>
+		<p>
+			<%= link_to "参加", event_participates_path(event), method: :post, remote: true, id:"participate_link_#{event.id}", class: "btn participate" %>
+		</p>
 	<% end %>
 </div>
