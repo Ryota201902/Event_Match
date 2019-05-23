@@ -38,10 +38,11 @@ body {
 	z-index: 100;
 }
 
+
 .logo {
 	line-height: 65px;
 	float: left;
-	padding: 0px 30px;
+	padding: 0px 30px 0px 50px;
 	margin-right: 350px;
 	text-decoration: none;
 }
@@ -49,15 +50,23 @@ body {
 .header_logo {
 	text-decoration: none;
 	color: black;
-	font-size: 20px;
+	font-size: 25px;
 }
 
 .header li {
-	line-height: 60px;
+	line-height: 70px;
 	float:left;
 	list-style: none;
-	padding: 5px 20px;
 	text-decoration: none;
+	padding: 0 10px;
+}
+
+.header_item {
+	padding: 20px 20px;
+}
+
+.header_item:hover {
+	border-bottom: 2px solid #83a4d4;
 }
 
 .header_item {
