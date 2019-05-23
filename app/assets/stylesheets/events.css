@@ -55,12 +55,12 @@
 }
 
 .description-text {
-	width: 300px;
+	width: 280px;
 	color: white;
 	text-align: center;
 	margin: 0 auto;
 	display: none;
-	padding-top: 60px;
+	padding-top: 45px;
 }
 
 .event_title {
@@ -129,7 +129,7 @@
 
 .capacity_max {
 	color: red;
-	font-size: 17px;
+	font-size: 16px;
 	border: 1px solid red;
 	width: 228px;
 	height: 40px;

@@ -2,6 +2,12 @@
 	padding: 30px;
 }
 
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
 .user_edit {
 	margin-top: 90px;
 	margin-left: 20px;

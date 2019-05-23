@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
-  	@participates = Participate.where(user_id: @user.id)
+  	@participates = Participate.where(user_id: @user.id).page(params[:page]).reverse_order
   end
 
   def edit
