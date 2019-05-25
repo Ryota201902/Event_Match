@@ -37,9 +37,15 @@ $(function() {
   $('.participate_plan_hover').hover(
     function(){
       $(this).find('.mypage_description').fadeIn(150);
+      $(this).find('.mypage_description-text').fadeIn(500);
+      $(this).find('.mypage_event_image').css('transform','scale(1.05)').css('transition-duration','0.3s');
+      $(this).css('border-bottom','2px solid black');
     },
     function(){
       $(this).find('.mypage_description').fadeOut();
+      $(this).find('.mypage_description-text').fadeOut(500);
+      $(this).find('.mypage_event_image').css('transform','scale(1.0)');
+      $(this).css('border-bottom','1px solid #DDDDDD');
     }
     );
 });

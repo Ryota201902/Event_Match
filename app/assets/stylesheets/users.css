@@ -1,5 +1,6 @@
 .user_show {
-	padding: 30px;
+	margin: 0px 40px 0px 125px;
+	padding-top: 20px;
 }
 
 .clearfix::after {
@@ -13,6 +14,27 @@
 	margin-left: 20px;
 }
 
+.profile_edit {
+	margin-top: 10px;
+}
+
+.profile_edit_btn {
+	background-color: green;
+	text-decoration: none;
+	color: white;
+	padding: 3px;
+	border-radius: 2px;
+	opacity: 0.7;
+	margin-right: 5px;
+}
+
+.user_show_border {
+	margin-top: 40px;
+	border: solid 0.5px grey;
+	margin-bottom: 40px;
+	width: 1037px;
+}
+
 .participate_plan {
 	width: 325px;
 	height: 420px;
@@ -22,6 +44,12 @@
 	box-shadow: 2px 2px 4px #eef0f4;
 	border-left: 1px solid #DDDDDD;
 	position: relative;
+}
+
+.mypage_event_image_wrap {
+	overflow: hidden;
+	width: 325px;
+	height: 210px;
 }
 
 .mypage_description {

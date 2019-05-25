@@ -1,8 +1,15 @@
-<p>参加人数 : <%= Participate.where(event_id: participate.event.id ).count %>/<%= participate.event.capacity %>名</p>
-<% if Participate.where(event_id: participate.event_id, user_id: current_user.id) != [] %>
-  <p><%= link_to "トークルームへ", event_path(participate.event) %></p>
-<% elsif Participate.where(event_id: participate.event_id).count >= participate.event.capacity %>
-	  <p>満員</p>
-<% else %>
-	  <p><%= link_to "参加", event_participates_path(participate.event), method: :post, remote: true %></p>
-<% end %>
+<p class="participates_count">
+	<span class="participate_users">
+		<%= fa_icon("user") %>
+	</span>
+	: <%= Participate.where(event_id: participate.event.id ).count %>/<%= participate.event.capacity %>名
+</p>
+<div class="participate_button">
+	<% if Participate.where(event_id: participate.event_id, user_id: current_user.id) != [] %>
+	  <p><%= link_to "トークルームへ", event_path(participate.event), class: "btn talkroom_participate" %></p>
+	<% elsif Participate.where(event_id: participate.event_id).count >= participate.event.capacity %>
+		  <p class="capacity_max btn">満員</p>
+	<% else %>
+		  <p><%= link_to "参加", event_participates_path(participate.event), method: :post, remote: true, class: "btn participate" %></p>
+	<% end %>
+</div>

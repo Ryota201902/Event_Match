@@ -50,85 +50,6 @@
 	padding-top: 45px;
 }
 
-.event_title {
-	border-bottom: 1px solid #DDDDDD;
-	padding: 8px;
-}
-
-.event_title {
-
-}
-
-.event_date {
-	margin-top: 8px;
-	margin-left: 20px;
-}
-
-.calendar {
-	margin-right: 24px;
-}
-
-.event_place {
-	margin-top: 8px;
-	margin-left: 22px;
-}
-
-.map-marker {
-	margin-right: 27px;
-}
-
-.participates_count {
-	margin-top: 8px;
-	margin-left: 21px;
-}
-
-.participate_users {
-	margin-right: 26px;
-}
-
-.participate_button {
-	margin-top: 23px;
-	text-align: center;
-}
-
-.btn {
-	color: white;
-	opacity: 0.8;
-	border-radius: 2px;
-}
-
-.btn:hover {
-	opacity: 1;
-}
-
-
-.talkroom_host {
-	background-color: #239b76;
-	text-decoration: none;
-	padding: 12px 63px;
-}
-
-.talkroom_participate {
-	background-color: #239b76;
-	text-decoration: none;
-	padding: 12px 63px;
-}
-
-.capacity_max {
-	color: red;
-	font-size: 16px;
-	border: 1px solid red;
-	width: 228px;
-	height: 40px;
-	line-height: 40px;
-	margin-left: 51px;
-}
-
-.participate {
-	background-color: #3359a9;
-	text-decoration: none;
-	padding: 12px 102px;
-}
 
 .ransack {
 	padding: 30px 360px;
@@ -181,7 +102,7 @@
 }
 
 .show_event_title {
-	font-size: 50px;
+	font-size: 40px;
 	margin-top: 50px;
 	margin-left: 100px;
 	margin-bottom: 20px;
@@ -196,6 +117,24 @@
 .show_item {
  float: left;
  margin-right: 15px;
+}
+
+.show_participate_cancel {
+	margin-top: 15px;
+}
+
+.participate_cancel {
+	background-color: red;
+	color: white;
+	text-decoration: none;
+	padding: 3px;
+	border-radius: 2px;
+	opacity: 0.7;
+	margin-left: 100px;
+}
+
+.participate_cancel:hover {
+	opacity: 1;
 }
 
 .event_destroy {
@@ -236,10 +175,17 @@
 	border-radius: 50%;
 }
 
-.btn-set{
-	padding: 10px;
-	background-color: red;
+.search_btn {
+	padding:  0 10px;
+	background-color: #1e3a93;
 	color: white;
+	border-radius: 3px;
+	opacity: 0.8;
+	cursor: pointer;
+}
+
+.search_btn:hover {
+	opacity: 1;
 }
 
 .comments {
