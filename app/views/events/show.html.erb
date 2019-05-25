@@ -2,39 +2,45 @@
 	<div class="show_image"><%= attachment_image_tag @event, :event_image, :fill, 1280, 450, format: 'jpeg' %>
 	</div>
 	<div class="show_discription">
-		<div class="show_discription_text">
-			<%= @event.description %>
-		</div>
-
-		<div class="show_items">
-			<p class="show_item"><%= fa_icon("hashtag") %> <%= @event.title %></p>
-			<p class="show_item"><%= fa_icon("calendar") %> <%= @event.date %></p>
-			<p class="show_item"><%= fa_icon("map-marker") %> <%= @event.place %></p>
-			<p class="show_item"><%= fa_icon("user") %> <%= @event.participates.count %>/<%= @event.capacity %>名</p>
-			<% if @event.participated_by?(current_user) %>
-				<%= link_to "参加取消", event_participates_path(@event), method: :delete %>
-			<% end %>
-			<div class="host_button">
-				<% if @event.user == current_user %>
-					<%= link_to "投稿削除", event_path(@event), method: :delete, class: "event_destroy host_btn" %>
-					<%= link_to "投稿編集", edit_event_path(@event), class: "event_edit host_btn" %>
-				<% end %>
-			</div>
-		</div>
+		<p class="show_event_title"><%= fa_icon("hashtag") %> <%= @event.title %></p>
 	</div>
+	<div class="icon left">
+		<%= link_to user_path(@event.user) do %><%= attachment_image_tag @event.user, :profile_image, size: "60x60",  fallback: "no_image.jpeg" %>
+		<% end %>
+		<%= @event.user.name %>
+		<span class="show_desription_text"><%= @event.description %></span>
+	</div>
+			<div class="show_items clearfix">
+				<p class="show_item"><%= fa_icon("calendar") %> <%= @event.date %></p>
+				<p class="show_item"><%= fa_icon("map-marker") %> <%= @event.place %></p>
+				<p class="show_item"><%= fa_icon("user") %> <%= @event.participates.count %>/<%= @event.capacity %>名</p>
+			</div>
+		<% if @event.participated_by?(current_user) %>
+			<%= link_to "参加取消", event_participates_path(@event), method: :delete %>
+		<% end %>
+		<div class="host_button">
+			<% if @event.user == current_user %>
+				<%= link_to "投稿編集", edit_event_path(@event), class: "event_edit host_btn" %>
+				<%= link_to "投稿削除", event_path(@event), method: :delete, class: "event_destroy host_btn" %>
+			<% end %>
+		</div>
+		<div class="show_border"></div>
 
-	<div class="comments">
+	<div class="comments left">
 		<% @event.post_comments.each do |post_comment| %>
-		  <p><%= link_to user_path(post_comment.user) do %><%= attachment_image_tag post_comment.user, :profile_image, size: "60x60",  fallback: "no_image.jpeg" %>
+		  <p>
+		  	<%= link_to user_path(post_comment.user) do %><%= attachment_image_tag post_comment.user, :profile_image, size: "60x60",  fallback: "no_image.jpeg" %>
 		  	<% end %>
 		  	<%= post_comment.user.name %>
-		  <%= post_comment.created_at.strftime('%Y/%m/%d')%>
-		  <%= post_comment.comment %></p>
+		  	<span class="show_comment_text"><%= post_comment.comment %></span>
+		  </p>
 		<% end %>
 	</div>
-	<div class="comment_form">
+	<div class="show_comment_border"></div>
+	<div class="comment">
 		<%= form_for [@event, @post_comment] do |f| %>
-		  <%= f.text_field :comment, class: 'comment_form'  %>
+		  <span><%= f.text_field :comment, :placeholder => "コメントを入力", class: 'comment_form'  %>
+		  </span>
 		  <%= f.submit '送信', class: 'comment_btn' %>
 		<% end %>
 	</div>

@@ -3,15 +3,6 @@
 	margin-left: 30px;
 }
 
-
-.comments {
-	margin-top: 30px;
-}
-
-.comment_form {
-	margin-top: 30px;
-}
-
 .event_index {
 	margin: 0px 40px 0px 125px;
 }
@@ -152,36 +143,59 @@
 	display: inline-block;
 }
 
+.icon {
+	margin-top: 20px;
+	margin-left: 100px;
+}
+
 .show_discription {
 	width: 1280px;
 	height: 450px;
 	background-color: black;
-	opacity: 0.7;
+	opacity: 0.5;
 	position: absolute;
 	top: 65px;
 }
 
-.show_discription_text {
+.show_desription_text {
+  position: relative;
+  display: inline-block;
+  max-width: 718px;
+  margin: 10px 20px 20px;
+  padding: 8px 15px;
+  background: #d4d8ff;
+  text-align: left;
+  border-radius: 15px;
+}
+
+.show_desription_text::after {
+  content: '';
+  border: 14px solid transparent;
+  border-top-color: #d4d8ff;
+  position: absolute;
+  top: 0;
+}
+
+.left .show_desription_text::after {
+  left: -10px;
+}
+
+.show_event_title {
+	font-size: 50px;
+	margin-top: 50px;
+	margin-left: 100px;
+	margin-bottom: 20px;
 	color: white;
-	width: 375px;
-	font-size: 22px;
-	margin-top: 100px;
-	margin-left: 250px;
-	line-height: 45px;
-	float: left;
 }
 
 .show_items {
-	font-size: 22px;
-	color: white;
-	margin-left: 660px;
-	margin-top: 100px;
+	color: black;
+	margin-left: 100px;
 }
 
 .show_item {
-	border-bottom: 1px solid black;
-	margin-bottom: 35px;
-	margin: 20px 200px 0px 0px;
+ float: left;
+ margin-right: 15px;
 }
 
 .event_destroy {
@@ -200,14 +214,21 @@
 	padding: 3px;
 	border-radius: 2px;
 	opacity: 0.7;
+	margin-right: 5px;
 }
 
 .host_button {
-	margin-top: 20px;
+	margin-left: 100px;
+	margin-top: 18px;
 }
 
 .host_btn:hover {
 	opacity: 1;
+}
+
+.show_border {
+	border-bottom: 1px solid grey;
+	margin-top: 27px;
 }
 
 
@@ -221,12 +242,60 @@
 	color: white;
 }
 
+.comments {
+	margin-top: 27px;
+	margin-left: 100px;
+}
+
+.show_comment_text {
+  position: relative;
+  display: inline-block;
+  max-width: 718px;
+  margin: 10px 20px 20px;
+  padding: 8px 15px;
+  background: #a4d9f8;
+  text-align: left;
+  border-radius: 15px;
+}
+
+.show_comment_text::after {
+  content: '';
+  border: 14px solid transparent;
+  border-top-color: #a4d9f8;
+  position: absolute;
+  top: 0;
+}
+
+.left .show_comment_text::after {
+  left: -10px;
+}
+
+.show_comment_border {
+	border-bottom: solid 1px grey;
+	margin-bottom: 30px;
+}
+
+.comment {
+	margin-bottom: 30px;
+}
+
 .comment_form {
-	width: 300px;
+	margin-left: 100px;
+	margin-bottom: ;
 	height: 30px;
+	width: 500px;
+	border-radius: 1px;
 }
 
 .comment_btn {
+	background-color: #1e3a93;
+	color: white;
+	opacity: 0.8;
+	padding: 6.5px 15px;
+	border-radius: 3px;
+}
 
+.comment_btn:hover {
+	opacity: 1;
 }
 
