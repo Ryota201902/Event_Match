@@ -1,18 +1,27 @@
 <div class="event_show">
-	<p><%= attachment_image_tag @event, :event_image, :fill, 200, 100, format: 'jpeg' %></p>
-	<p>説明 : <%= @event.description %></p>
-	<p>タイトル : <%= @event.title %></p>
-	<p>日程 : <%= @event.date %></p>
-	<p>場所 : <%= @event.place %></p>
-	<p>参加人数 : <%= @event.participates.count %>/<%= @event.capacity %>名</p>
-	<p><%= @event.created_at.strftime('%Y/%m/%d') %></p>
-	<% if @event.participated_by?(current_user) %>
-		<%= link_to "参加取消", event_participates_path(@event), method: :delete %>
-	<% end %>
-	<% if @event.user == current_user %>
-		<%= link_to "削除", event_path(@event), method: :delete %>
-		<%= link_to "編集", edit_event_path(@event) %>
-	<% end %>
+	<div class="show_image"><%= attachment_image_tag @event, :event_image, :fill, 1280, 450, format: 'jpeg' %>
+	</div>
+	<div class="show_discription">
+		<div class="show_discription_text">
+			<%= @event.description %>
+		</div>
+
+		<div class="show_items">
+			<p class="show_item"><%= fa_icon("hashtag") %> <%= @event.title %></p>
+			<p class="show_item"><%= fa_icon("calendar") %> <%= @event.date %></p>
+			<p class="show_item"><%= fa_icon("map-marker") %> <%= @event.place %></p>
+			<p class="show_item"><%= fa_icon("user") %> <%= @event.participates.count %>/<%= @event.capacity %>名</p>
+			<% if @event.participated_by?(current_user) %>
+				<%= link_to "参加取消", event_participates_path(@event), method: :delete %>
+			<% end %>
+			<div class="host_button">
+				<% if @event.user == current_user %>
+					<%= link_to "投稿削除", event_path(@event), method: :delete, class: "event_destroy host_btn" %>
+					<%= link_to "投稿編集", edit_event_path(@event), class: "event_edit host_btn" %>
+				<% end %>
+			</div>
+		</div>
+	</div>
 
 	<div class="comments">
 		<% @event.post_comments.each do |post_comment| %>
@@ -25,8 +34,8 @@
 	</div>
 	<div class="comment_form">
 		<%= form_for [@event, @post_comment] do |f| %>
-		  <%= f.text_field :comment %>
-		  <%= f.submit %>
+		  <%= f.text_field :comment, class: 'comment_form'  %>
+		  <%= f.submit '送信', class: 'comment_btn' %>
 		<% end %>
 	</div>
 </div>
