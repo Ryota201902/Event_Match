@@ -5,7 +5,7 @@
 	<p class="profile_edit"><% if @user.id == current_user.id %>
 		<%= link_to "プロフィール編集", edit_user_path(@user.id),class: "profile_edit_btn" %>
 	<% end %></p>
-	<div class="user_show_border"></div>
+	<div class="user_show_border">PARTICIPATE  PLANS</div>
 	<div class="participation_plans">
 		<% @participates.each do |participate| %>
 			<div class="participate_plan participate_plan_hover">
