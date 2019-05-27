@@ -1,5 +1,5 @@
 <div class="user_show clearfix">
-  <p><%= attachment_image_tag @user, :profile_image, size: "100x100", format: "jpeg", fallback: "no_image.jpeg" %></p>
+  <p><%= attachment_image_tag @user, :profile_image, size: "100x100", format: "jpeg", fallback: "/images/no_image.jpeg" %></p>
   <p>名前 : <%= @user.name %></p>
   <p>自己紹介 : <%= @user.introduction %></p>
   <p class="profile_edit">

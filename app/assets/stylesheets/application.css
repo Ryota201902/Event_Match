@@ -148,12 +148,12 @@ body {
 
 .capacity_max {
 	color: red;
-	font-size: 16px;
+	font-size: 17px;
 	border: 1px solid red;
-	width: 114px;
+	width: 184px;
 	height: 27px;
 	line-height: 25px;
-	margin-left: 104px;
+	margin-left: 69px;
 }
 
 .participate {
