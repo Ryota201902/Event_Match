@@ -1,63 +1,67 @@
 <div class="user_show clearfix">
-	<p><%= attachment_image_tag @user, :profile_image, size: "100x100", format: "jpeg", fallback: "no_image.jpeg" %></p>
-	<p>名前 : <%= @user.name %></p>
-	<p>自己紹介 : <%= @user.introduction %></p>
-	<p class="profile_edit"><% if @user.id == current_user.id %>
-		<%= link_to "プロフィール編集", edit_user_path(@user.id),class: "profile_edit_btn" %>
-	<% end %></p>
-	<div class="user_show_border">PARTICIPATE  PLANS</div>
-	<div class="participation_plans">
-		<% @participates.each do |participate| %>
-			<div class="participate_plan participate_plan_hover">
-				<div class="mypage_event_image_wrap">
-				  <div class="mypage_event_image"><%= attachment_image_tag participate.event, :event_image, :fill, 325, 210, format: 'jpeg' %>
-				  </div>
-				</div>
-			  <div class="mypage_description">
-			  	<div class="mypage_description-text">
-			  		<%= participate.event.description %>
-			  	</div>
-			  </div>
-			  	<p class="event_title">
-				  	<span class="hashtag">
-					 	<%= fa_icon("hashtag") %>
-					</span>
-				 	<%= participate.event.title %>
-				</p>
-			  	<p class="event_date">
-				  	<span class="calendar">
-					 	<%= fa_icon("calendar") %>
-					</span>
-				 : <%= participate.event.date %>
-				</p>
-				<p class="event_place">
-				  	<span class="map-marker">
-					 	<%= fa_icon("map-marker") %>
-					 </span>
-					 : <%= participate.event.place %>
-				</p>
-			  <div id="mypage_participate_btn_<%= participate.event.id %>"><%= render partial: 'users/mypage_participate', locals: { participate: participate } %>
-				 </div>
-			</div>
-		<% end %>
-	</div>
+  <p><%= attachment_image_tag @user, :profile_image, size: "100x100", format: "jpeg", fallback: "no_image.jpeg" %></p>
+  <p>名前 : <%= @user.name %></p>
+  <p>自己紹介 : <%= @user.introduction %></p>
+  <p class="profile_edit">
+  	<% if @user.id == current_user.id %>
+	  <%= link_to "プロフィール編集", edit_user_path(@user.id),class: "profile_edit_btn" %>
+	<% end %>
+  </p>
+  <div class="user_show_border">PARTICIPATE  PLANS</div>
+  <div class="participation_plans">
+	<% @participates.each do |participate| %>
+	  <div class="participate_plan participate_plan_hover">
+	    <div class="mypage_event_image_wrap">
+		  <div class="mypage_event_image">
+		  	<%= attachment_image_tag participate.event, :event_image, :fill, 325, 210, format: 'jpeg' %>
+		  </div>
+		</div>
+		<div class="mypage_description">
+		  <div class="mypage_description-text">
+		    <%= participate.event.description %>
+		  </div>
+		</div>
+		<p class="event_title">
+		  <span class="hashtag">
+		    <%= fa_icon("hashtag") %>
+		  </span>
+		  <%= participate.event.title %>
+		</p>
+		<p class="event_date">
+		  <span class="calendar">
+		    <%= fa_icon("calendar") %>
+		  </span>
+		   : <%= participate.event.date %>
+		</p>
+		<p class="event_place">
+		  <span class="map-marker">
+			<%= fa_icon("map-marker") %>
+		  </span>
+		   : <%= participate.event.place %>
+		</p>
+		<div id="mypage_participate_btn_<%= participate.event.id %>">
+			<%= render partial: 'users/mypage_participate', locals: { participate: participate } %>
+		</div>
+	  </div>
+	<% end %>
+  </div>
 </div>
 <p><%= paginate @participates, class: "paginate" %></p>
 <script>
-	$(function() {
-  $('.participate_plan_hover').hover(
-    function(){
-      $(this).find('.mypage_description').fadeIn(150);
-      $(this).find('.mypage_description-text').fadeIn(500);
-      $(this).find('.mypage_event_image').css('transform','scale(1.05)').css('transition-duration','0.3s');
-      $(this).css('border-bottom','2px solid black');
-    },
-    function(){
-      $(this).find('.mypage_description').fadeOut();
-      $(this).find('.mypage_description-text').fadeOut(500);
-      $(this).find('.mypage_event_image').css('transform','scale(1.0)');
-      $(this).css('border-bottom','1px solid #DDDDDD');
-    }
+  $(function() {
+    $('.participate_plan_hover').hover(
+      function(){
+        $(this).find('.mypage_description').fadeIn(150);
+        $(this).find('.mypage_description-text').fadeIn(500);
+        $(this).find('.mypage_event_image').css('transform','scale(1.05)').css('transition-duration','0.3s');
+        $(this).css('border-bottom','2px solid black');
+      },
+      function(){
+        $(this).find('.mypage_description').fadeOut();
+        $(this).find('.mypage_description-text').fadeOut(500);
+        $(this).find('.mypage_event_image').css('transform','scale(1.0)');
+        $(this).css('border-bottom','1px solid #DDDDDD');
+      }
     );
-});
+  });
 </script>

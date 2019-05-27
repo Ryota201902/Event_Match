@@ -1,23 +1,22 @@
 <div class="event_new">
-	<div class="post_back">
-		<div class="post_event">
-			<%= form_for (@event) do |f| %>
-			  <% if @event.errors.any? %>
-				<%= @event.errors.count %>のエラーが発生しました
-				<%= @event.errors.full_messages.each do |message| %>
-					<%= message %>
-				<% end%>
-			  <% end %>
-
-			  <p><%= f.attachment_field :event_image, class: "form_new" %></p>
-			  <p><%= f.text_field :title, :placeholder => "タイトル", class: "form_new" %></p>
-			  <p><%= f.date_field :date, :placeholder => "日程", class: "form_new" %></p>
-			  <p><%= f.text_field :place, :placeholder => "場所", class: "form_new" %></p>
-			  <p><%= f.number_field :capacity, :placeholder => "定員", class: "form_new" %></p>
-			  <p><%= f.text_area :description, :placeholder => "説明", class: "form_new" %></p>
-			  <p><%= f.submit '投稿',class: "post_btn" %></p>
-			  <a class="tweet" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="一緒にイベントに参加しましょう！" data-url="http://localhost:3000/events" data-hashtags="Event_Match" data-lang="ja" data-show-count="false"><%= fa_icon("twitter") %> Tweetでシェア</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-			<% end %>
-		</div>
+  <div class="post_back">
+    <div class="post_event">
+	  <%= form_for (@event) do |f| %>
+	    <% if @event.errors.any? %>
+		  <%= @event.errors.count %>のエラーが発生しました
+		  <%= @event.errors.full_messages.each do |message| %>
+		    <%= message %>
+	      <% end%>
+	    <% end %>
+	    <p><%= f.attachment_field :event_image, class: "form_new" %></p>
+	    <p><%= f.text_field :title, :placeholder => "タイトル", class: "form_new" %></p>
+	    <p><%= f.date_field :date, :placeholder => "日程", class: "form_new" %></p>
+	    <p><%= f.text_field :place, :placeholder => "場所", class: "form_new" %></p>
+	    <p><%= f.number_field :capacity, :placeholder => "定員", class: "form_new" %></p>
+	    <p><%= f.text_area :description, :placeholder => "説明", class: "form_new" %></p>
+	    <p><%= f.submit '投稿',class: "post_btn" %></p>
+	    <a class="tweet" href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-size="large" data-text="一緒にイベントに参加しましょう！" data-url="http://localhost:3000/events" data-hashtags="Event_Match" data-lang="ja" data-show-count="false"><%= fa_icon("twitter") %> Tweetでシェア</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	  <% end %>
 	</div>
+  </div>
 </div>

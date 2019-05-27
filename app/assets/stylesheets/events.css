@@ -130,26 +130,26 @@
 }
 
 .show_desription_text {
-  position: relative;
-  display: inline-block;
-  max-width: 718px;
-  margin: 10px 20px 20px;
-  padding: 8px 15px;
-  background: #d4d8ff;
-  text-align: left;
-  border-radius: 15px;
+  	position: relative;
+  	display: inline-block;
+  	max-width: 718px;
+  	margin: 10px 20px 20px;
+  	padding: 8px 15px;
+  	background: #d4d8ff;
+  	text-align: left;
+  	border-radius: 15px;
 }
 
 .show_desription_text::after {
-  content: '';
-  border: 14px solid transparent;
-  border-top-color: #d4d8ff;
-  position: absolute;
-  top: 0;
+  	content: '';
+  	border: 14px solid transparent;
+  	border-top-color: #d4d8ff;
+  	position: absolute;
+  	top: 0;
 }
 
 .left .show_desription_text::after {
-  left: -10px;
+  	left: -10px;
 }
 
 .show_event_title {
@@ -166,8 +166,8 @@
 }
 
 .show_item {
- float: left;
- margin-right: 15px;
+ 	float: left;
+ 	margin-right: 15px;
 }
 
 .show_participate_cancel {
@@ -245,26 +245,26 @@
 }
 
 .show_comment_text {
-  position: relative;
-  display: inline-block;
-  max-width: 718px;
-  margin: 10px 20px 20px;
-  padding: 8px 15px;
-  background: #a4d9f8;
-  text-align: left;
-  border-radius: 15px;
+  	position: relative;
+  	display: inline-block;
+  	max-width: 718px;
+  	margin: 10px 20px 20px;
+  	padding: 8px 15px;
+  	background: #a4d9f8;
+  	text-align: left;
+  	border-radius: 15px;
 }
 
 .show_comment_text::after {
-  content: '';
-  border: 14px solid transparent;
-  border-top-color: #a4d9f8;
-  position: absolute;
-  top: 0;
+  	content: '';
+  	border: 14px solid transparent;
+  	border-top-color: #a4d9f8;
+  	position: absolute;
+  	top: 0;
 }
 
 .left .show_comment_text::after {
-  left: -10px;
+  	left: -10px;
 }
 
 .show_comment_border {
