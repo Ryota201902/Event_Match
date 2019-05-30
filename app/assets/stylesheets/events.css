@@ -26,18 +26,10 @@
 	opacity: 1;
 }
 
-.tweet {
-	padding: 9px 30px ;
-	text-decoration: none;
-	background-color: #55acee;
-	color: white;
-	border-radius: 3px;
-}
-
 .post_event {
 	background-color: white;
 	width: 400px;
-	height: 447px;
+	height: 417px;
 	margin: 0 auto;
 	text-align: center;
 	padding: 30px;
@@ -278,7 +270,7 @@
 
 .comment_form {
 	margin-left: 100px;
-	margin-bottom: ;
+	/*margin-bottom: ;*/
 	height: 30px;
 	width: 500px;
 	border-radius: 1px;
