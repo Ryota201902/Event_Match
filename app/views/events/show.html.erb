@@ -9,8 +9,8 @@
   </div>
   <div class="icon left">
 	<%= link_to user_path(@event.user) do %>
-	  <%= attachment_image_tag @event.user, :profile_image, size: "60x60",  fallback: "/images/no_image.jpg" %>
-    <% end %>
+		<%= attachment_image_tag @event.user, :profile_image, size: "60x60",  fallback: "/images/no_image.jpg" %>
+	<% end %>
 	<%= @event.user.name %>
 	<span class="show_desription_text"><%= @event.description %></span>
   </div>
