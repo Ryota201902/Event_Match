@@ -6,7 +6,7 @@
 EVENT MATCHはイベント同行者を募集でき、また募集されたイベントに参加することができるサービスです。
 
 ## テスト用アカウント
-[email] test@test
+[email] test@test  
 [password] testtest
 
 # 機能
@@ -26,5 +26,5 @@ EVENT MATCHはイベント同行者を募集でき、また募集されたイベ
 * AWS EC2
 
 # 言語・フレームワーク
-ruby 2.5.3
+ruby 2.5.3  
 rails 5.2.3
