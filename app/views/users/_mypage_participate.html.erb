@@ -2,11 +2,14 @@
   <span class="participate_users">
     <%= fa_icon("user") %>
   </span>
+  <%# イベントに参加しているユーザーの数 / イベントの定員 %>
 	: <%= Participate.where(event_id: participate.event.id ).count %>/<%= participate.event.capacity %>名
 </p>
 <div class="participate_button">
+  <%# ログインユーザーがイベントに参加している場合 %>
   <% if Participate.where(event_id: participate.event_id, user_id: current_user.id) != [] %>
 	<p><%= link_to "トークルームへ", event_path(participate.event), class: "btn talkroom_participate" %></p>
+  <%# イベント参加者数が定員に達している場合 %>
   <% elsif Participate.where(event_id: participate.event_id).count >= participate.event.capacity %>
 	<p class="capacity_max btn">満員</p>
   <% else %>
