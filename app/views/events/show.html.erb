@@ -20,11 +20,13 @@
 		<p class="show_item"><%= fa_icon("user") %> <%= @event.participates.count %>/<%= @event.capacity %>名</p>
 	</div>
 	<div class="show_participate_cancel">
+		<%# ログインユーザーがイベントに参加している場合 %>
 		<% if @event.participated_by?(current_user) %>
 			<%= link_to "参加取消", event_participates_path(@event), method: :delete, class: "participate_cancel" %>
 		<% end %>
 	</div>
 	<div class="host_button">
+		<%# ログインユーザーがイベント主催者の場合 %>
 		<% if @event.user == current_user %>
 			<%= link_to "投稿編集", edit_event_path(@event), class: "event_edit host_btn" %>
 			<%= link_to "投稿削除", event_path(@event), method: :delete, class: "event_destroy host_btn" %>
