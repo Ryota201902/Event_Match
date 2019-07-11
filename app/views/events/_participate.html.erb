@@ -4,14 +4,17 @@
 </p>
 
 <div id ="participate" class="participate_button">
+  <%# ログインユーザーがイベント主催者の場合 %>
   <% if event.user.id == current_user.id %>
     <p>
       <%= link_to "トークルームへ", event_path(event), class: "btn talkroom_host"%>
     </p>
+  <%# ログインユーザーがイベントに参加している場合 %>
   <% elsif event.participated_by?(current_user) %>
     <p>
       <%= link_to "トークルームへ", event_path(event.id), method: :get, class: "btn talkroom_participate" %>
     </p>
+  <%# イベント参加者数が定員に達した場合 %>
   <% elsif event.capacity <= event.participates.count %>
     <p class="capacity_max btn">満員</p>
   <% else %>
