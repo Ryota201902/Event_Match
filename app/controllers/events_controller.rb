@@ -25,8 +25,10 @@ class EventsController < ApplicationController
 
 	def show
 		@event = Event.find(params[:id])
+		#ログインユーザーがイベントに参加している場合
 	  if Participate.where(event_id: params[:id]).pluck(:user_id).include?(current_user.id)
 		@post_comment = PostComment.new
+		#ログインユーザーがイベント募集者の場合
 	  elsif Event.where(id: params[:id]).pluck(:user_id).include?(current_user.id)
 		@post_comment = PostComment.new
 	  else
