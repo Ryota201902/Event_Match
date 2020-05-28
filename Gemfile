@@ -71,6 +71,6 @@ gem "refile-mini_magick"
 gem 'ransack'
 gem 'jquery-rails'
 gem 'pry-rails'
-gem 'kaminari','~> 1.1.1'
+gem 'kaminari','~> 1.2.1'
 gem 'font-awesome-rails'
 gem 'faker'
